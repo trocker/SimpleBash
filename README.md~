@@ -13,8 +13,6 @@ Reason for the need of SimpleBash
 - There are some really cool features and commands that are not being used regularly. For example - **sudo !!** which otherwise could have been very unforgetful if it were **simplebash sudo last command**
 - Imagine shell scrips which are utterly more readable, doing extremely complex file conversions, uploading and bit manipulation without really knowing the programs needed to do that.
 
-
-
 Reasons not to use SimpleBash
 -----------------------------
 
@@ -30,7 +28,7 @@ Development Approach
 - You can find the present sytax by typing **simplebash <english_verb> help** . For example - **simplebash find help**
 - Every command will have the option of poviding alias for the command via the command line **simplebash create alias for "find param1 in all"**
 - Hitting tabs will try to complete the sentence as much as possible with 
-- Later versions should have one english sentence can and should use multiple commands to achieve the result, in case others fail. Therefore, future versions can do conversion using different programs and install dependencies itself.
+
 
 
 SimpleBash Examples
