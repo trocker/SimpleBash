@@ -1,0 +1,49 @@
+#!/bin/bash
+
+
+#Define Constants like PLUGINS_FOLDER etc.
+
+
+
+#Plugins in the plugin folder will be named after the original program name and NOT the english verbs
+readonly PLUGINS_DIR="./plugins"
+
+# Verb[0]='help'
+
+
+#Form the entire command
+sb_command=$*
+
+
+#Include all the plugins
+for f in $PLUGINS_DIR/* ; do
+   . $f
+done
+
+#Pass the full command to sbmappings & sbmappings will call the correct function
+map_command $sb_command
+
+
+
+##Define default syntax of the script - Execute this only if there are no arguments
+if [ -z "$1" ]
+then
+    programname=$0
+
+    function usage {
+        echo "usage: $programname [english_sentence]"
+        echo ""
+        echo ""
+        echo "Available sentences:"
+        echo ""
+        echo "          -> find every file matching <search_string> in this folder and subfolders"
+        echo ""
+        echo ""
+        exit 1
+    }
+
+    usage
+fi
+
+##Find all the scripts in the plugins folder
+

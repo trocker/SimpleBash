@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+
+#### Adding a simplebash command for this program is as simple as defining three things for each
+# 1. Define or Reuse the verb
+# 2. Define the purpose of the command
+# 3. Define the syntax of the command
+# 4. Define what this simplebash command corresponds to
+# 5. Define what internal function this command corresponds to
+# 6. Define the filter the output should be put through - default is no filter
+####
+
+
+verb[$((${#verb[@]}))]="find"
+purpose[$((${#purpose[@]}))]="Find every file matching <string> in this folder and subfolders."
+syntax[$((${#syntax[@]}))]="find every file matching <string> in this folder and subfolders"
+correspondsTo[$((${#correspondsTo[@]}))]="find . -name <string>"
+correspondingFunction[$((${#correspondingFunction[@]}))]="find_every_file_matching_string"
+#regexMatch[$((${#regexMatch[@]}))]="^find every file matching (.*) in this folder and subfolders"
+function find_every_file_matching_string {
+    #echo "I'm inside file_every_file_match_string function parameter $*"
+    sb_command_passed=$*
+    regexMatch="^find every file matching (.*) in this folder and subfolders"
+    [[ $sb_command_passed =~ $regexMatch ]]
+    param1=${BASH_REMATCH[1]}
+    #echo "MATCHED PARAMETER IS $param1"
+    #echo $param1
+    find . -name "$param1"
+}
+
+#if the sb_command matches this command's syntax then take out the parameters
+

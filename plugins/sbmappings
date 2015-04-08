@@ -1,0 +1,14 @@
+#!/bin/bash
+
+####SB-MAPPIGNS will find out which internal-command this SB command corresponds to. Presently defaults to one command
+
+
+
+function map_command {
+    #echo "Command Passed is:"
+    #echo "$*"
+    #echo "I will start the processing now..."
+    #echo ""
+    #echo ""
+    find_every_file_matching_string $*
+}
